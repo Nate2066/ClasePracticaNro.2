@@ -1,30 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace EjercicioNro._3
+internal class Program
 {
-    internal class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        Console.Write("Introduce un número de elementos");
+        int numero = Convert.ToInt32(Console.ReadLine());
+
+        for (int i = 0; i < numero; i++)
         {
-            Console.WriteLine("Ingrese una cantidad de elementos");
-            int elementos = Convert.ToInt32(Console.ReadLine());
-            _SerieFibonacci(elementos);
+            Console.Write("{0} ", _Fibonacci(i));
         }
-        static int _SerieFibonacci(int pRango)
+    }
+
+    static int _Fibonacci(int pNumero)
+    {
+        if (pNumero <= 1)
         {
-            if(pRango == 1)
-            {
-                return 1;
-            }
-            else
-            {
-                Console.WriteLine(_SerieFibonacci(pRango -1) + _SerieFibonacci(pRango -1));
-                return pRango + 1;
-            }
+            return pNumero;
+        }
+        else
+        {
+            return _Fibonacci(pNumero - 1) + _Fibonacci(pNumero - 2);
         }
     }
 }

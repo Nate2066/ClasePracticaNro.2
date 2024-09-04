@@ -20,6 +20,7 @@ namespace EjercicioNro._4
                     Console.WriteLine("1. cuadrado ");
                     Console.WriteLine("2. triangulo equilatero");
                     Console.WriteLine("3. circulo");
+                    Console.WriteLine("4. salir");
                     byte opc = Convert.ToByte(Console.ReadLine());
 
                     switch (opc)
@@ -43,6 +44,13 @@ namespace EjercicioNro._4
                             Console.WriteLine("Ingrese el radio del circulo");
                             double radio = Convert.ToDouble(Console.ReadLine());
                             _CalculoFigurasGeometricas(radio, Math.PI);
+                            break;
+                        case 4:
+                            Console.Clear();
+                            salir = true;
+                            break;
+                        default:
+                            _MensajeError();
                             break;
                     }
                 }
