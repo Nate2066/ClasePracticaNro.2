@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EjercicioNro._7
+namespace EjercicioNro._6
 {
     internal class Program
     {
@@ -16,6 +16,7 @@ namespace EjercicioNro._7
             {
                 try
                 {
+                    Console.Clear();
                     Console.WriteLine(" que desea ordenar?");
                     Console.WriteLine(" 1.  arreglo numerico");
                     Console.WriteLine(" 2.  arreglo de palabras o frases");
@@ -42,8 +43,20 @@ namespace EjercicioNro._7
                             break;
                         case 2:
                             Console.Clear();
-                            Console.WriteLine("miau");
-                            Console.ReadKey();
+                            Console.WriteLine("Ingrese el tamano del arreglo");
+                            int tamanoArregloAbc = Convert.ToInt32(Console.ReadLine());
+
+                            string[] arregloAbc = new string[tamanoArregloAbc];
+
+                            Console.WriteLine("Ahora ingrese los valores del arreglo");
+                            for (int i = 0; i < tamanoArregloAbc; i++)
+                            {
+                                arregloAbc[i] = Console.ReadLine();
+                            }
+                            Console.Clear();
+                            _Ordenamiento(arregloAbc);
+                            _ImprimirArreglo(arregloAbc);
+                            Console.ReadLine();
                             break;
                         case 3:
                             Console.Clear();
@@ -78,13 +91,19 @@ namespace EjercicioNro._7
         }
         static void _Ordenamiento(string[] arreglo)
         {
-            //vacio
+            Array.Sort(arreglo);
         }
 
         static void _ImprimirArreglo(int[] arreglo)
         {
-            int arregloTamano = arreglo.Length;
-            for (int i = 0; i < arregloTamano; i++)
+            for (int i = 0; i < arreglo.Length; i++)
+            {
+                Console.WriteLine("Posicion: {0} | Valor: {1}", i + 1, arreglo[i]);
+            }
+        }
+        static void _ImprimirArreglo(string[] arreglo)
+        {
+            for (int i = 0; i < arreglo.Length; i++)
             {
                 Console.WriteLine("Posicion: {0} | Valor: {1}", i + 1, arreglo[i]);
             }
